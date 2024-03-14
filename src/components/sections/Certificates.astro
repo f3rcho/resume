@@ -1,31 +1,30 @@
 ---
 import Section from "../Section.astro"
 
-import { education } from "@cv"
+import { certificates } from "@cv"
 ---
 
-<Section title="Education">
+<Section title="Certificates">
   <ul>
     {
-      education.map(({ institution, startDate, endDate, area }) => {
-        const startYear = new Date(startDate).getFullYear()
-        const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual"
-        const years = `${startYear} - ${endYear}`
+      certificates.map(({ name, date, issuer, url }) => {
+        const startYear = new Date(date).getFullYear()
+
+        const years = `Febrary ${startYear}`
 
         return (
           <li>
             <article>
               <header>
                 <div>
-                  <h3>{institution}</h3>
+                  <h3>{issuer}</h3>
                 </div>
 
                 <time>{years}</time>
               </header>
 
               <footer>
-                <p>{area}</p>
+                <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
               </footer>
             </article>
           </li>

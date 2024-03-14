@@ -16,6 +16,11 @@ import Swift from "@/icons/swift.astro"
 import SwiftUI from "@/icons/swiftui.astro"
 import Kotlin from "@/icons/kotlin.astro"
 import Flutter from "@/icons/flutter.astro"
+import DynamoDB from "@/icons/dynamodb.astro"
+import AWS from "@/icons/aws.astro"
+import GraphQL from "@/icons/graphql.astro"
+import AstroSkill from "@/icons/astro.astro"
+
 
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
@@ -33,10 +38,14 @@ const SKILLS_ICONS: Record<string, any> = {
   SwiftUI,
   Kotlin,
   Flutter,
+  DynamoDB,
+  AWS,
+  GraphQL,
+  AstroSkill
 }
 ---
 
-<Section title="Habilidades">
+<Section title="Skills">
   <ul>
     {
       skills.map(({ name }) => {
@@ -45,7 +54,7 @@ const SKILLS_ICONS: Record<string, any> = {
 
         return (
           <li>
-            {Icon && <Icon />} <span>{name}</span>
+            {Icon && <Icon />} <span>{name === 'AstroSkill' ? 'Astro' : name}</span>
           </li>
         )
       })
